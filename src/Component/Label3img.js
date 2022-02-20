@@ -7,7 +7,7 @@ export const Label3img = () => {
   useEffect(() => {
     async function fetchData() {
       await axios
-        .get("http://localhost:8000/api/v1/data3/homed")
+        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
         .then((req, res) => {
           const response = req.data;
           setData(response);
