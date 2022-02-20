@@ -13,7 +13,7 @@ export const ShowUser = (props) => {
         alt="srcimage here"
       />
       <span>
-        <h5>User Name !!!</h5>
+        <h5>{props.name}</h5>
         <small>{props.data1} - 10 mins read</small>
       </span>
     </div>
@@ -63,7 +63,7 @@ export const ShowFooter = () => {
                   />
                   <span className="childftrspan">
                     <p>{x.title}</p>
-                    <h5>User Name !!!</h5>
+                    <h5>{x.author}</h5>
                     <small>{x.date} - 10 mins read</small>
                   </span>
                 </div>

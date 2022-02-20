@@ -43,7 +43,7 @@ export const ShowContent = () => {
           <i class="fab fa-instagram fa-2x" />{" "}
           <i class="fab fa-twitter fa-2x" />
         </span>
-        <ShowUser data1={dt1.date} />
+        <ShowUser data1={dt1.date} name={dt1.author}/>
 
         <img src={dt1.image} alt="srcimage here" />
         <p>{dt1.content}</p>
@@ -58,7 +58,7 @@ export const ShowContent = () => {
           <li>Animation</li>
         </span>
         <b>Written by</b>
-        <ShowUser data1={dt1.date} />
+        <ShowUser data1={dt1.date} name={dt1.author}/>
       </div>
       <ShowFooter data1={dt1.date} />
     </>
