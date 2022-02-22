@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./blogStyles.css"; //ths is serious
 
 export const Header = () => {
@@ -12,18 +12,17 @@ export const Header = () => {
     const changesize = () => {
       setscreen(window.innerWidth);
     };
-    window.addEventListener("resize", changesize); //addinf event listener for updating
-    return () => {
-      //removing the eventlistener after update
+    window.addEventListener("resize", changesize); //adding event listener for updating
+    return () => {                                 //removing the eventlistener after update
       window.removeEventListener("resize", changesize);
     };
-  }, []); //componentdidMount equvivalent hooks!!
+  },[]); //componentdidMount equvivalent hook for responsive navbar design
   return (
     <div className="stkhead">
       <h1 className="headsiren">
         <h2>The</h2>Siren
       </h1>
-      {(togfn || screen > 660) && ( /// this is a shortcircuit funtion!!!
+      {(togfn || screen > 600) && ( // this is a shortcircuit logic
         <h2 className="titlelink">
           <NavLink
             className="nlink"

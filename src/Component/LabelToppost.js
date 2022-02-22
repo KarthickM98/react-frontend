@@ -1,23 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { contextData } from "./Context";
 
 export const LabelToppost = () => {
   const { category } = useParams();
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
-        .then((req, res) => {
-          const response = req.data;
-          setData(response);
-          console.log("hii, data recieved here, label toppost");
-        })
-        .catch(() => console.log("error"));
-    }
-    fetchData();
-  }, []);
+  const data = useContext(contextData)
   let count = 0;
   return (
     <div className="toppost">

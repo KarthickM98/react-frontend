@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { contextData } from "./Context";
 
 export const LabelTwo = () => {
-  const { category } = useParams();
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
-        .then((req, res) => {
-          const response = req.data;
-          setData(response);
-          console.log("hii, data recieved here, label two");
-        })
-        .catch(() => console.log("error"));
-    }
-    fetchData();
-  }, []);
+  const data = useContext(contextData);
   const [load, setLoad] = useState(true);
   const [st, setst] = useState(15);
   const [ldbn, setlbdn] = useState("LOAD MORE");
@@ -34,15 +20,10 @@ export const LabelTwo = () => {
       setbtn("down");
     }
   };
-
   return (
     <div className="label2parent">
       {data
-        .filter((x) =>
-          category === undefined
-            ? x.id > 7 && x.id < st
-            : x.category === category
-        )
+        .filter((x) =>  x.id > 7 && x.id < st )
         .map((x, index) => {
           if (x.id === 8) {
             return (

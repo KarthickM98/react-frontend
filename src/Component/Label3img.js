@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { contextData } from "./Context";
 
 export const Label3img = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
-        .then((req, res) => {
-          const response = req.data;
-          setData(response);
-          console.log("hii, data recieved here, label 3 img");
-        })
-        .catch(() => console.log("error"));
-    }
-    fetchData();
-  }, []);
+  const data = useContext(contextData);
   return (
     <div className="label3">
       {data

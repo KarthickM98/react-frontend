@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { contextData } from "./Context";
 
 export const ShowUser = (props) => {
   return (
@@ -10,7 +10,7 @@ export const ShowUser = (props) => {
         src={
           "https://www.pikpng.com/pngl/m/154-1540525_male-user-filled-icon-my-profile-icon-png.png"
         }
-        alt="srcimage here"
+        alt="user Dp here"
       />
       <span>
         <h5>{props.name}</h5>
@@ -19,22 +19,9 @@ export const ShowUser = (props) => {
     </div>
   );
 };
-
+//________________________________________________________________________
 export const ShowFooter = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
-        .then((req, res) => {
-          const response = req.data;
-          setData(response);
-          console.log("hii, data recieved here, label show footer");
-        })
-        .catch(() => console.log("error"));
-    }
-    fetchData();
-  }, []);
+  const data = useContext(contextData)
   const { id } = useParams();
   let d1;
   data.forEach((element) => {

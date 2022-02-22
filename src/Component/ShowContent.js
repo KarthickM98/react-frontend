@@ -4,16 +4,13 @@ import { ShowFooter, ShowUser } from "./ShowHeader";
 import axios from "axios";
 
 export const ShowContent = () => {
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[])
   const { id } = useParams();
   const { show } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
       await axios
-        .get("https://hidden-water-5678.herokuapp.com/api/v1/data3/homed")
+        .get(`https://hidden-water-5678.herokuapp.com/api/v1/dataOne/${id}`)
         .then((req, res) => {
           const response = req.data;
           setData(response);
@@ -22,7 +19,7 @@ export const ShowContent = () => {
         .catch(() => console.log("error"));
     }
     fetchData();
-  }, []); // however id changed on the route only no need for id in dependency
+  }, [id]); // however id changed on the route only no need for id in dependency
   // const [dt,setdt] =useState(); // do not use usestate hooks inside the loops forEach
   let dt1 = data;
   data.forEach((element) => {
@@ -33,7 +30,7 @@ export const ShowContent = () => {
   return (
     <>
       <div className="contentPage">
-        <h1>{show} Article title here!</h1>
+        <h1>{show} Article</h1>
         <span className="clapsicon">
           <i className="fa-solid fa-hands-clapping fa-2x" /> {dt1.claps}!!{" "}
           <i class="fa fa-share-alt fa-2x" /> Share
