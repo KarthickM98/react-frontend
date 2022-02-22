@@ -33,12 +33,12 @@ export const ShowContent = () => {
         <h1>{show} Article</h1>
         <span className="clapsicon">
           <i className="fa-solid fa-hands-clapping fa-2x" /> {dt1.claps}!!{" "}
-          <i class="fa fa-share-alt fa-2x" /> Share
+          <i className="fa fa-share-alt fa-2x" /> Share
         </span>
         <span className="socil">
-          <i class="fab fa-youtube fa-2x" /> <i class="fab fa-facebook fa-2x" />{" "}
-          <i class="fab fa-instagram fa-2x" />{" "}
-          <i class="fab fa-twitter fa-2x" />
+          <i className="fab fa-youtube fa-2x" /> <i class="fab fa-facebook fa-2x" />{" "}
+          <i className="fab fa-instagram fa-2x" />{" "}
+          <i className="fab fa-twitter fa-2x" />
         </span>
         <ShowUser data1={dt1.date} name={dt1.author}/>
 
