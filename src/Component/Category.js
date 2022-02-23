@@ -12,7 +12,7 @@ export const Bollywood = () => {
     async function fetchData() {
       await axios
         .get(
-          `https://hidden-water-5678.herokuapp.com/api/v1/dataTwo/${category}`
+          "https://hidden-water-5678.herokuapp.com/api/v1/dataTwo/category",{params:{category:category}}
         )
         .then((req, res) => {
           const response = req.data;
