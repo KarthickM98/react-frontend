@@ -6,6 +6,7 @@ export const contextData = createContext(); //api // context value creating
 export const Context = (props) => {
   //data
   const [data, setData] = useState([]);
+  const [load,setLoad] = useState(false)
   useEffect(() => {
     async function fetchData() {
       await axios
@@ -13,6 +14,7 @@ export const Context = (props) => {
         .then((req, res) => {
           const response = req.data;
           setData(response);
+          setLoad(true);
           console.log("hii, data recieved here, Context");
         })
         .catch(() => console.log("error"));
@@ -20,7 +22,7 @@ export const Context = (props) => {
     fetchData();
   }, []);
   return (
-    <contextData.Provider value={data}>
+    <contextData.Provider value={[data,load]}>
       {props.children}
     </contextData.Provider>
   );

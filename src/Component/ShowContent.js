@@ -4,8 +4,7 @@ import { ShowFooter, ShowUser } from "./ShowHeader";
 import axios from "axios";
 
 export const ShowContent = () => {
-  const { id } = useParams();
-  const { show } = useParams();
+  const { show ,id } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {

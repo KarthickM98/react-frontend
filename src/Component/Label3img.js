@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { contextData } from "./Context";
 
 export const Label3img = () => {
-  const data = useContext(contextData);
+  const [data] = useContext(contextData);
   return (
     <div className="label3">
       {data

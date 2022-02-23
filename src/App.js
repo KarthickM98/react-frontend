@@ -10,23 +10,36 @@ import { Home } from "./Component/Home";
 import { Bollywood } from "./Component/Category";
 import { PageNotFound } from "./Component/PageNotFound";
 import { ShowContent } from "./Component/ShowContent";
-import { Context } from "./Component/Context";
+import { contextData } from "./Component/Context";
 import Scrollup from "./Component/Scrollup";
+import { useContext } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 function App() {
+  const [data, load] = useContext(contextData);
+  console.log(data);
   return (
     <Router>
-      <Context>
-        <Scrollup />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/title/:category" element={<Bollywood />} />
-          <Route path="/:show/:id" element={<ShowContent />} />
-          <Route path="/*" element={<PageNotFound />} />
-        </Routes>
-      </Context>
+      <Scrollup />
+      {load ? (
+        <>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/title/:category" element={<Bollywood />} />
+            <Route path="/:show/:id" element={<ShowContent />} />
+            <Route path="/*" element={<PageNotFound />} />
+          </Routes>
+        </>
+      ) : (
+        <Box
+          sx={{ marginTop: "200px", display: "flex", justifyContent: "center" }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
     </Router>
   );
 }

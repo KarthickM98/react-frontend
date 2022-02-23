@@ -220,15 +220,18 @@
   width: 10rem;
   margin-left: 0rem;
 }
-.toppost1 img{
+/* .toppost1 img{
   border-radius: 5px;
   height: 10rem;
   width: 18.76rem;
-
 }
-/* .toppost1{
-  border: 2px solid green;
+.toppostimg{
+  height: 10rem;
+  width: 18.76rem
 } */
+.toppostimg{
+  border: 2px solid green;
+}
 .toppost p {
   width: 18.76rem;
   font-size: small;
@@ -245,7 +248,6 @@
 .toppost {
   width: 18.67rem;
   margin-left: 1rem;
-
 }
 .toppost1,
 .toppost2 {

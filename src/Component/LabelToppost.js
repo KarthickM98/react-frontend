@@ -1,26 +1,23 @@
 import React, { useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { contextData } from "./Context";
 
 export const LabelToppost = () => {
-  const { category } = useParams();
-  const data = useContext(contextData)
+  const [data] = useContext(contextData)
   let count = 0;
   return (
     <div className="toppost">
       <h1>Top Post</h1>
       {data
         .filter((x) =>
-          category === undefined
-            ? x.id >= 19 && x.id < 25
-            : x.category === category
+         x.id >= 19 && x.id < 24
         )
         .map((e, index) => {
           if (e.id === 20) {
             return (
               <Link to={`/${e.category}/${e.id}`} className="link2" key={index}>
                 <div className="toppost1">
-                  <img src={e.image} alt="srcimage here" />
+                  <img src={e.image} alt="srcimage here" className="toppostimg"/>
                   <h5>{e.title.slice(0, 32)} </h5>
                   <span className="numspan">{`${(count = count + 1)}`}</span>
                   <p>

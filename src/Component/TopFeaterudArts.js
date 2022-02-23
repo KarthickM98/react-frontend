@@ -4,7 +4,7 @@ import "./blogStyles.css";
 import { contextData } from "./Context";
 
 export const TopFeaterudArts = () => {
-  const data = useContext(contextData)
+  const [data] = useContext(contextData)
   const data1 = [];
   const data2 = [];
   data.forEach((k) => {

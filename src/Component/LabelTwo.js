@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { contextData } from "./Context";
 
 export const LabelTwo = () => {
-  const data = useContext(contextData);
+  const [data] = useContext(contextData);
   const [load, setLoad] = useState(true);
   const [st, setst] = useState(15);
   const [ldbn, setlbdn] = useState("LOAD MORE");
   const [btn, setbtn] = useState("down");
   const loadbtn = () => {
-    setLoad(!load); //seting toggle!!
+    setLoad(!load); //setting toggle!!
     if (load) {
       setst(19);
       setlbdn("LOAD LESS");

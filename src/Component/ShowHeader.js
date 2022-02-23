@@ -21,7 +21,7 @@ export const ShowUser = (props) => {
 };
 //________________________________________________________________________
 export const ShowFooter = () => {
-  const data = useContext(contextData)
+  const [data] = useContext(contextData)
   const { id } = useParams();
   let d1;
   data.forEach((element) => {

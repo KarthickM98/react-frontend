@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { contextData } from "./Context";
 
 export const LabelOne = () => {
-  const data = useContext(contextData)
+  const [data] = useContext(contextData)
   return (
     <>
       <h1 className="headh1">The Latest</h1>

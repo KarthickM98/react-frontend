@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { contextData } from "./Context";
 
 export const LabelFooter = () => {
-  const data = useContext(contextData)
+  const [data] = useContext(contextData)
   const [ldbn, setldbn] = useState(true);
   const [btn, setbtn] = useState("down");
   const [btn2, setbtn2] = useState("LOAD MORE");
