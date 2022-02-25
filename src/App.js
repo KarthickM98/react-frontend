@@ -22,9 +22,9 @@ function App() {
   return (
     <Router>
       <Scrollup />
+      <Header />
       {load ? (
         <>
-          <Header />
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
